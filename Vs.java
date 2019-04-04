@@ -91,35 +91,35 @@ public class Vs extends JFrame {
   this.addKeyListener(new KeyAdapter() { // Permette di accettare i comandi della tastiera come input
    public void keyPressed(KeyEvent e) {
     if (modalita == true && ((e.getKeyCode() == KeyEvent.VK_UP && snakeGiocatore2.getElementi().get(0).getX() != snakeGiocatore2.getElementi().get(1).getX()+1) || (e.getKeyCode() == KeyEvent.VK_DOWN && snakeGiocatore2.getElementi().get(0).getX() != snakeGiocatore2.getElementi().get(1).getX()-1) || (e.getKeyCode() == KeyEvent.VK_LEFT && snakeGiocatore2.getElementi().get(0).getY() != snakeGiocatore2.getElementi().get(1).getY()+1) || (e.getKeyCode() == KeyEvent.VK_RIGHT && snakeGiocatore2.getElementi().get(0).getY() != snakeGiocatore2.getElementi().get(1).getY()-1) && (pausa == false))) {
-	 inputGiocatore2 = e.getKeyCode();
+     inputGiocatore2 = e.getKeyCode();
      if (mosso == false) {
-	  mosso = true;
+      mosso = true;
       settaTimer(); } } }
    public void keyTyped(KeyEvent e) {
     if ((e.getKeyChar() == 'w' && snakeGiocatore1.getElementi().get(0).getX() != snakeGiocatore1.getElementi().get(1).getX()+1) || (e.getKeyChar() == 's' && snakeGiocatore1.getElementi().get(0).getX() != snakeGiocatore1.getElementi().get(1).getX()-1) || (e.getKeyChar() == 'a' && snakeGiocatore1.getElementi().get(0).getY() != snakeGiocatore1.getElementi().get(1).getY()+1) || (e.getKeyChar() == 'd' && snakeGiocatore1.getElementi().get(0).getY() != snakeGiocatore1.getElementi().get(1).getY()-1) && (pausa == false)) {
-	 inputGiocatore1 = e.getKeyChar();
+     inputGiocatore1 = e.getKeyChar();
      if (mosso == false) {
-	  mosso = true;
+      mosso = true;
       settaTimer(); } }
     else if (e.getKeyChar() == 'p' && pausa == false && mosso == true) { // Mette il gioco in pausa
-	 if (giocatore1GameOver == false) {
-	  timerGiocatore1.cancel(); }
-	 if (giocatore2GameOver == false) {
-	  timerGiocatore2.cancel(); }
-	 if (modalita == false) {
-	  setTitle("SNAKE - Player VS CPU - In Pausa"); }
-	 else {
-	  setTitle("SNAKE - Player VS Player - In Pausa"); }
-	 pausa = true; }
-	else if (e.getKeyChar() == 'e' && pausa == true) {
-	 apriMenu();  }
-	else if (e.getKeyChar() == 'p' && pausa == true) { // Fa uscire il gioco dalla pausa
-	 if (modalita == false) {
-	  setTitle("SNAKE - Player VS CPU - In Gioco"); }
-	 else {
-	  setTitle("SNAKE - Player VS Player - In Gioco"); }
-	 pausa = false;
-	 settaTimer(); } } }); }
+     if (giocatore1GameOver == false) {
+      timerGiocatore1.cancel(); }
+     if (giocatore2GameOver == false) {
+      timerGiocatore2.cancel(); }
+     if (modalita == false) {
+      setTitle("SNAKE - Player VS CPU - In Pausa"); }
+     else {
+      setTitle("SNAKE - Player VS Player - In Pausa"); }
+     pausa = true; }
+    else if (e.getKeyChar() == 'e' && pausa == true) {
+     apriMenu();  }
+    else if (e.getKeyChar() == 'p' && pausa == true) { // Fa uscire il gioco dalla pausa
+     if (modalita == false) {
+      setTitle("SNAKE - Player VS CPU - In Gioco"); }
+     else {
+      setTitle("SNAKE - Player VS Player - In Gioco"); }
+     pausa = false;
+     settaTimer(); } } }); }
   
  class giocoGiocatore1 extends TimerTask { 
   public void run() {
@@ -130,8 +130,8 @@ public class Vs extends JFrame {
     boolean esito = muoviSnakeGiocatore1();
     if (esito == false) {
      timerGiocatore1.cancel();
-	 grigliaGiocatore1[snakeGiocatore1.getElementi().get(0).getX()][snakeGiocatore1.getElementi().get(0).getY()].setBackground(Color.BLACK);
-	 giocatore1GameOver = true;
+     grigliaGiocatore1[snakeGiocatore1.getElementi().get(0).getX()][snakeGiocatore1.getElementi().get(0).getY()].setBackground(Color.BLACK);
+     giocatore1GameOver = true;
      if (giocatore2GameOver == true) {
       gameOver(); } } } } }
  
@@ -145,19 +145,19 @@ public class Vs extends JFrame {
      scegliInput(); }
     boolean esito = muoviSnakeGiocatore2();
     if (esito == false) {
-	 timerGiocatore2.cancel();
-	 grigliaGiocatore2[posizioneTestaX][posizioneTestaY].setBackground(Color.BLACK);
-	 giocatore2GameOver = true;
-	 if (giocatore1GameOver == true) {
-	  gameOver(); } } } } }
+     timerGiocatore2.cancel();
+     grigliaGiocatore2[posizioneTestaX][posizioneTestaY].setBackground(Color.BLACK);
+     giocatore2GameOver = true;
+     if (giocatore1GameOver == true) {
+      gameOver(); } } } } }
 
  public void creaGrigliaGiocatore1() { // Prepara la griglia del giocatore 1 quando il gioco viene avviato
   grigliaGiocatore1 = new JLabel[11][21];
   for (int i = 0; i < 11; i++) {
    for (int j = 0; j < 21; j++) {
     grigliaGiocatore1[i][j] = new JLabel("     "); // Le caselle sono costituite da delle JLabel vuote colorate di bianco
-	grigliaGiocatore1[i][j].setBackground(Color.WHITE);
-	grigliaGiocatore1[i][j].setOpaque(true);
+    grigliaGiocatore1[i][j].setBackground(Color.WHITE);
+    grigliaGiocatore1[i][j].setOpaque(true);
     p1.add(grigliaGiocatore1[i][j]); } }
   for (int j = 0; j < 7; j++) {
    grigliaGiocatore1[10][j].setBackground(Color.BLUE); } } // Le caselle iniziale occupate dal serpente sono invece blu
@@ -167,8 +167,8 @@ public class Vs extends JFrame {
   for (int i = 0; i < 11; i++) {
    for (int j = 0; j < 21; j++) {
     grigliaGiocatore2[i][j] = new JLabel("     "); // Le caselle sono costituite da delle JLabel vuote colorate di bianco
-	grigliaGiocatore2[i][j].setBackground(Color.WHITE);
-	grigliaGiocatore2[i][j].setOpaque(true);
+    grigliaGiocatore2[i][j].setBackground(Color.WHITE);
+    grigliaGiocatore2[i][j].setOpaque(true);
     p2.add(grigliaGiocatore2[i][j]); } }
   for (int j = 0; j < 7; j++) {
    grigliaGiocatore2[10][j].setBackground(Color.BLUE); } } // Le caselle iniziale occupate dal serpente sono invece blu
@@ -193,7 +193,7 @@ public class Vs extends JFrame {
    int Y = randY.nextInt(21);
    if (grigliaGiocatore2[X][Y].getBackground() == Color.WHITE) {
     posizioneFruttoX = X;
-	posizioneFruttoY = Y;
+    posizioneFruttoY = Y;
     grigliaGiocatore2[X][Y].setBackground(Color.RED);
     flag = true; } } }
  
@@ -239,25 +239,25 @@ public class Vs extends JFrame {
    Coordinate correnti = (Coordinate) it.next();
    if (testa == true) { // Stiamo muovendo l'elemento di testa
     ultimoX = correnti.getX(); // Salva le coordinate attuali della testa
-	ultimoY = correnti.getY();
-	if (posizioneCorrettaGiocatore1(ultimoX + aggiungiX, ultimoY + aggiungiY) == false) { // Se il serpente si scontra contro qualcosa il gioco finisce
-	 return false; } 
+    ultimoY = correnti.getY();
+    if (posizioneCorrettaGiocatore1(ultimoX + aggiungiX, ultimoY + aggiungiY) == false) { // Se il serpente si scontra contro qualcosa il gioco finisce
+     return false; } 
     correnti.setX(ultimoX+aggiungiX);  // La testa si sposta e assume nuove coordinate
     correnti.setY(ultimoY+aggiungiY);
-	if (grigliaGiocatore1[correnti.getX()][correnti.getY()].getBackground() == Color.RED) { // Il serpente mangia, viene aggiornato il punteggio e un altro frutto viene aggiunto
-	 inserisciFruttoGiocatore1();
-	 aggiornaPunteggioGiocatore1();
+    if (grigliaGiocatore1[correnti.getX()][correnti.getY()].getBackground() == Color.RED) { // Il serpente mangia, viene aggiornato il punteggio e un altro frutto viene aggiunto
+     inserisciFruttoGiocatore1();
+     aggiornaPunteggioGiocatore1();
      mangiato = true; }
     grigliaGiocatore1[correnti.getX()][correnti.getY()].setBackground(Color.BLUE);
     testa = false;	}
    else { // Stiamo muovendo un elemento interno al serpente, che imita il movimento di quello successivo
     swapX = correnti.getX();
-	swapY = correnti.getY();
-	correnti.setX(ultimoX);
-	correnti.setY(ultimoY);
-	grigliaGiocatore1[ultimoX][ultimoY].setBackground(Color.BLUE);
-	ultimoX = swapX;
-	ultimoY = swapY; } }
+    swapY = correnti.getY();
+    correnti.setX(ultimoX);
+    correnti.setY(ultimoY);
+    grigliaGiocatore1[ultimoX][ultimoY].setBackground(Color.BLUE);
+    ultimoX = swapX;
+    ultimoY = swapY; } }
 	
   if (mangiato == true) { // Se il serpente ha mangiato, viene aggiunto un nuovo elemento in coda
    snakeGiocatore1.getElementi().add(new Coordinate(swapX, swapY));
@@ -300,27 +300,27 @@ public class Vs extends JFrame {
    Coordinate correnti = (Coordinate) it.next();
    if (testa == true) { // Stiamo muovendo l'elemento di testa
     ultimoX = correnti.getX(); // Salva le coordinate attuali della testa
-	ultimoY = correnti.getY();
-	if (posizioneCorrettaGiocatore2(ultimoX + aggiungiX, ultimoY + aggiungiY) == false) { // Se il serpente si scontra contro qualcosa il gioco finisce
-	 return false; } 
+    ultimoY = correnti.getY();
+    if (posizioneCorrettaGiocatore2(ultimoX + aggiungiX, ultimoY + aggiungiY) == false) { // Se il serpente si scontra contro qualcosa il gioco finisce
+     return false; } 
     correnti.setX(ultimoX+aggiungiX);  // La testa si sposta e assume nuove coordinate
     correnti.setY(ultimoY+aggiungiY);
-	if (grigliaGiocatore2[correnti.getX()][correnti.getY()].getBackground() == Color.RED) { // Il serpente mangia, viene aggiornato il punteggio e un altro frutto viene aggiunto
-	 inserisciFruttoGiocatore2();
-	 aggiornaPunteggioGiocatore2();
+    if (grigliaGiocatore2[correnti.getX()][correnti.getY()].getBackground() == Color.RED) { // Il serpente mangia, viene aggiornato il punteggio e un altro frutto viene aggiunto
+     inserisciFruttoGiocatore2();
+     aggiornaPunteggioGiocatore2();
      mangiato = true; }
     grigliaGiocatore2[correnti.getX()][correnti.getY()].setBackground(Color.BLUE);
-	posizioneTestaX = correnti.getX();
-	posizioneTestaY = correnti.getY();
+    posizioneTestaX = correnti.getX();
+    posizioneTestaY = correnti.getY();
     testa = false;	}
    else { // Stiamo muovendo un elemento interno al serpente, che imita il movimento di quello successivo
     swapX = correnti.getX();
-	swapY = correnti.getY();
-	correnti.setX(ultimoX);
-	correnti.setY(ultimoY);
-	grigliaGiocatore2[ultimoX][ultimoY].setBackground(Color.BLUE);
-	ultimoX = swapX;
-	ultimoY = swapY; } }
+    swapY = correnti.getY();
+    correnti.setX(ultimoX);
+    correnti.setY(ultimoY);
+    grigliaGiocatore2[ultimoX][ultimoY].setBackground(Color.BLUE);
+    ultimoX = swapX;
+    ultimoY = swapY; } }
 	
   if (mangiato == true) { // Se il serpente ha mangiato, viene aggiunto un nuovo elemento in coda
    snakeGiocatore2.getElementi().add(new Coordinate(swapX, swapY));
@@ -345,127 +345,127 @@ public class Vs extends JFrame {
     else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
      inputGiocatore2 = 'a'; }
     else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 'd'; }
-	else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX < posizioneTestaX) {
-	 inputGiocatore2 = 'w'; }
-	else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX > posizioneTestaX) {
-	 inputGiocatore2 = 's'; }
+     inputGiocatore2 = 'd'; }
+    else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX < posizioneTestaX) {
+     inputGiocatore2 = 'w'; }
+    else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX > posizioneTestaX) {
+     inputGiocatore2 = 's'; }
     else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 'w'; }
-	else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 's'; }
+     inputGiocatore2 = 'w'; }
+    else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
+     inputGiocatore2 = 's'; }
     else {
      inputGiocatore2 = 'd'; } }
 	 
    else if (posizioneFruttoY < posizioneTestaY) { // Calcola l'input se il frutto si trova piu' a sinistra del serpente
     if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && inputA >= inputW && inputA >= inputS) {
-	 inputGiocatore2 = 'a'; }
-	else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && inputW >= inputS) {
-	 inputGiocatore2 = 'w'; }
-	else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && inputW <= inputS) {
-	 inputGiocatore2 = 's'; }
-	else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 'd'; }
-	else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 'a'; }
-	else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX < posizioneTestaX) {
-	 inputGiocatore2 = 'w'; }
-	else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX > posizioneTestaX) {
-	 inputGiocatore2 = 's'; }
+     inputGiocatore2 = 'a'; }
+    else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && inputW >= inputS) {
+     inputGiocatore2 = 'w'; }
+    else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && inputW <= inputS) {
+     inputGiocatore2 = 's'; }
+    else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
+     inputGiocatore2 = 'd'; }
+    else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
+     inputGiocatore2 = 'a'; }
+    else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX < posizioneTestaX) {
+     inputGiocatore2 = 'w'; }
+    else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX > posizioneTestaX) {
+     inputGiocatore2 = 's'; }
     else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 'w'; }
-	else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 's'; }
-	else {
-	 inputGiocatore2 = 'a'; } }
+     inputGiocatore2 = 'w'; }
+    else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
+     inputGiocatore2 = 's'; }
+    else {
+     inputGiocatore2 = 'a'; } }
      
    else { // Calcola l'input se il frutto si trova alla stessa coordinata Y del serpente
     if (posizioneFruttoX > posizioneTestaX) { // Calcola l'input se il frutto si trova piu' in basso
-	 if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && inputS >= inputD && inputS >= inputA) {
-	  inputGiocatore2 = 's'; }
-	 else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && inputD >= inputA) {
-	  inputGiocatore2 = 'd'; }
-	 else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && inputD <= inputA) {
-	  inputGiocatore2 = 'a'; }
-	 else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'w'; }
-	 else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE){
-	  inputGiocatore2 = 's';}
-	 else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && posizioneFruttoY > posizioneTestaY) {
-	  inputGiocatore2 = 'd'; }
-	 else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && posizioneFruttoY < posizioneTestaY) {
-	  inputGiocatore2 = 'a'; }
-	 else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'd'; }
-	 else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'a'; }
-	 else {
-	  inputGiocatore2 = 's'; } }
+     if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && inputS >= inputD && inputS >= inputA) {
+      inputGiocatore2 = 's'; }
+     else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && inputD >= inputA) {
+      inputGiocatore2 = 'd'; }
+     else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && inputD <= inputA) {
+      inputGiocatore2 = 'a'; }
+     else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 'w'; }
+     else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE){
+      inputGiocatore2 = 's';}
+     else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && posizioneFruttoY > posizioneTestaY) {
+      inputGiocatore2 = 'd'; }
+     else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && posizioneFruttoY < posizioneTestaY) {
+      inputGiocatore2 = 'a'; }
+     else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 'd'; }
+     else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 'a'; }
+     else {
+      inputGiocatore2 = 's'; } }
   
     else { // Calcola l'input se il frutto si trova piu' in alto
-	 if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && inputW >= inputD && inputW >= inputA) {
-	  inputGiocatore2 = 'w'; }
-	 else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && inputD >= inputA) {
-	  inputGiocatore2 = 'd'; }
-	 else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && inputD <= inputA) {
-	  inputGiocatore2 = 'a'; }
+     if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && inputW >= inputD && inputW >= inputA) {
+      inputGiocatore2 = 'w'; }
+     else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && inputD >= inputA) {
+      inputGiocatore2 = 'd'; }
+     else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && inputD <= inputA) {
+      inputGiocatore2 = 'a'; }
      else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
       inputGiocatore2 = 's'; }
-	 else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'w'; }
-	 else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && posizioneFruttoY > posizioneTestaY) {
-	  inputGiocatore2 = 'd'; }
-	 else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && posizioneFruttoY < posizioneTestaY) {
-	  inputGiocatore2 = 'a'; }
-	 else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'd'; }
-	 else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'a'; }
+     else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 'w'; }
+     else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && posizioneFruttoY > posizioneTestaY) {
+      inputGiocatore2 = 'd'; }
+     else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && posizioneFruttoY < posizioneTestaY) {
+      inputGiocatore2 = 'a'; }
+     else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 'd'; }
+     else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 'a'; }
      else {
       inputGiocatore2 = 'w'; } } } }
   
   else if (swap == false && contatoreGiocatore2 > 3) { // Tipo AI 2
    if (posizioneFruttoX > posizioneTestaX) { // Calcola l'input se il frutto si trova piu' in basso
-	if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && inputS >= inputD && inputS >= inputA) {
-	 inputGiocatore2 = 's'; }
-	else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && inputD >= inputA) {
-	 inputGiocatore2 = 'd'; }
-	else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && inputD <= inputA) {
-	 inputGiocatore2 = 'a'; }
-	else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 'w'; }
+    if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && inputS >= inputD && inputS >= inputA) {
+     inputGiocatore2 = 's'; }
+    else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && inputD >= inputA) {
+     inputGiocatore2 = 'd'; }
+    else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && inputD <= inputA) {
+     inputGiocatore2 = 'a'; }
+    else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
+     inputGiocatore2 = 'w'; }
     else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE){
-	 inputGiocatore2 = 's';}
+     inputGiocatore2 = 's';}
     else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && posizioneFruttoY > posizioneTestaY) {
-	 inputGiocatore2 = 'd'; }
-	else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && posizioneFruttoY < posizioneTestaY) {
-	 inputGiocatore2 = 'a'; }
-	else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 'd'; }
-	else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 'a'; }
-	else {
-	 inputGiocatore2 = 's'; } }
+     inputGiocatore2 = 'd'; }
+    else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && posizioneFruttoY < posizioneTestaY) {
+     inputGiocatore2 = 'a'; }
+    else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
+     inputGiocatore2 = 'd'; }
+    else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
+     inputGiocatore2 = 'a'; }
+    else {
+     inputGiocatore2 = 's'; } }
    
    else if (posizioneFruttoX < posizioneTestaX) { // Calcola l'input se il frutto si trova piu' in alto
-	if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && inputW >= inputD && inputW >= inputA) {
-	 inputGiocatore2 = 'w'; }
-	else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && inputD >= inputA) {
-	 inputGiocatore2 = 'd'; }
-	else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && inputD <= inputA) {
-	 inputGiocatore2 = 'a'; }
+    if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && inputW >= inputD && inputW >= inputA) {
+     inputGiocatore2 = 'w'; }
+    else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && inputD >= inputA) {
+     inputGiocatore2 = 'd'; }
+    else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && inputD <= inputA) {
+     inputGiocatore2 = 'a'; }
     else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
      inputGiocatore2 = 's'; }
-	else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 'w'; }
+    else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
+     inputGiocatore2 = 'w'; }
     else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE && posizioneFruttoY > posizioneTestaY) {
-	 inputGiocatore2 = 'd'; }
-	else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && posizioneFruttoY < posizioneTestaY) {
-	 inputGiocatore2 = 'a'; }
-	else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 'd'; }
-	else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
-	 inputGiocatore2 = 'a'; }
+     inputGiocatore2 = 'd'; }
+    else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && posizioneFruttoY < posizioneTestaY) {
+     inputGiocatore2 = 'a'; }
+    else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
+     inputGiocatore2 = 'd'; }
+    else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
+     inputGiocatore2 = 'a'; }
     else {
      inputGiocatore2 = 'w'; } }
    
@@ -479,40 +479,40 @@ public class Vs extends JFrame {
       inputGiocatore2 = 's'; }
      else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
       inputGiocatore2 = 'a'; }
-	 else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'd'; }
+     else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 'd'; }
      else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX < posizioneTestaX) {
-	  inputGiocatore2 = 'w'; }
-	 else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX > posizioneTestaX) {
-	  inputGiocatore2 = 's'; }
-	 else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'w'; }
-	 else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 's'; }
+      inputGiocatore2 = 'w'; }
+     else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX > posizioneTestaX) {
+      inputGiocatore2 = 's'; }
+     else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 'w'; }
+     else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 's'; }
      else {
       inputGiocatore2 = 'd'; } }
 	 
     else { // Calcola l'input se il frutto si trova piu' a sinistra del serpente
      if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE && inputA >= inputW && inputA >= inputS) {
-	  inputGiocatore2 = 'a'; }
-	 else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && inputW >= inputS) {
-	  inputGiocatore2 = 'w'; }
-	 else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && inputW <= inputS) {
-	  inputGiocatore2 = 's'; }
-	 else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'd'; }
-	 else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'a'; }
+      inputGiocatore2 = 'a'; }
+     else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && inputW >= inputS) {
+      inputGiocatore2 = 'w'; }
+     else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && inputW <= inputS) {
+      inputGiocatore2 = 's'; }
+     else if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 'd'; }
+     else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 'a'; }
      else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX < posizioneTestaX) {
-	  inputGiocatore2 = 'w'; }
-	 else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX > posizioneTestaX) {
-	  inputGiocatore2 = 's'; }
-	 else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'w'; }
-	 else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 's'; }
-	 else {
-	  inputGiocatore2 = 'a'; } } } }
+      inputGiocatore2 = 'w'; }
+     else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE && posizioneFruttoX > posizioneTestaX) {
+      inputGiocatore2 = 's'; }
+     else if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 'w'; }
+     else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 's'; }
+     else {
+      inputGiocatore2 = 'a'; } } } }
 	  
   else if (contatoreGiocatore2 <= 3) { // Tipo IA 3
    if (posizioneFruttoY > posizioneTestaY) { // Calcola l'input se il frutto si trova piu' a destra del serpente
@@ -520,45 +520,45 @@ public class Vs extends JFrame {
      inputGiocatore2 = 'd'; }
     else {
      if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'w'; }
-	 else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 's'; }
-	 else {
-	  inputGiocatore2 = 'a'; } } }
+      inputGiocatore2 = 'w'; }
+     else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 's'; }
+     else {
+      inputGiocatore2 = 'a'; } } }
   
    else if (posizioneFruttoY < posizioneTestaY) { // Calcola l'input se il frutto si trova piu' a sinistra del serpente
     if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
      inputGiocatore2 = 'a'; }
     else {
      if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 'w'; }
-	 else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
-	  inputGiocatore2 = 's'; }
-	 else {
-	  inputGiocatore2 = 'd'; } } }
+      inputGiocatore2 = 'w'; }
+     else if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
+      inputGiocatore2 = 's'; }
+     else {
+      inputGiocatore2 = 'd'; } } }
 	 
    else { // Calcola l'input se il frutto si trova alla stessa coordinata Y del serpente
     if (posizioneFruttoX > posizioneTestaX) { // Calcola l'input se il frutto si trova piu' in basso
      if (posizioneTestaX != 10 && grigliaGiocatore2[posizioneTestaX+1][posizioneTestaY].getBackground() != Color.BLUE) {
       inputGiocatore2 = 's'; }
-	 else {
-	  if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
-	   inputGiocatore2 = 'd'; }
-	  else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
-	   inputGiocatore2 = 'a'; }
-	  else {
-	   inputGiocatore2 = 'w'; } } }
+     else {
+      if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
+       inputGiocatore2 = 'd'; }
+      else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
+       inputGiocatore2 = 'a'; }
+      else {
+       inputGiocatore2 = 'w'; } } }
 	  
     else { // Calcola l'input se il frutto si trova piu' in alto
      if (posizioneTestaX != 0 && grigliaGiocatore2[posizioneTestaX-1][posizioneTestaY].getBackground() != Color.BLUE) {
       inputGiocatore2 = 'w'; }
-	 else {
-	  if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
-	   inputGiocatore2 = 'd'; }
-	  else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
-	   inputGiocatore2 = 'a'; }
-	  else {
-	   inputGiocatore2 = 's'; } } } } }
+     else {
+      if (posizioneTestaY != 20 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY+1].getBackground() != Color.BLUE) {
+       inputGiocatore2 = 'd'; }
+      else if (posizioneTestaY != 0 && grigliaGiocatore2[posizioneTestaX][posizioneTestaY-1].getBackground() != Color.BLUE) {
+       inputGiocatore2 = 'a'; }
+      else {
+       inputGiocatore2 = 's'; } } } } }
 	
   contatoreSwap = contatoreSwap + 1;
   if (contatoreSwap == 1 && swap == true) {
@@ -827,7 +827,7 @@ public class Vs extends JFrame {
    if (modalita == true) {
     risultato = new JLabel("Game Over! Vince il Giocatore 2 con " + contatoreGiocatore2 + " punti!", JLabel.CENTER); }
    else {
-	risultato = new JLabel("Game Over! Vince il Computer con " + contatoreGiocatore2 + " punti!", JLabel.CENTER); } }
+    risultato = new JLabel("Game Over! Vince il Computer con " + contatoreGiocatore2 + " punti!", JLabel.CENTER); } }
   else {
    risultato = new JLabel("Game Over! Pareggio con " + " punti!"); }
   int scelta;
