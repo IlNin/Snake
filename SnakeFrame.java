@@ -65,15 +65,15 @@ public class SnakeFrame extends JFrame {
       mosso = true;
       settaTimer(); } }
     else if (e.getKeyChar() == 'p' && pausa == false && mosso == true) { // Mette il gioco in pausa
-	 timer.cancel();
-	 setTitle("SNAKE - Classica " + nomeVelocita + " - In Pausa");
-	 pausa = true; }
-	else if (e.getKeyChar() == 'e' && pausa == true) { // Torna al menu dalla pausa
-	 apriMenu();  }
-	else if (e.getKeyChar() == 'p' && pausa == true) { // Fa uscire il gioco dalla pausa
-	 setTitle("SNAKE - Classica " + nomeVelocita + " - In Gioco");
-	 pausa = false;
-	 settaTimer(); } } }); }
+     timer.cancel();
+     setTitle("SNAKE - Classica " + nomeVelocita + " - In Pausa");
+     pausa = true; }
+    else if (e.getKeyChar() == 'e' && pausa == true) { // Torna al menu dalla pausa
+     apriMenu();  }
+    else if (e.getKeyChar() == 'p' && pausa == true) { // Fa uscire il gioco dalla pausa
+     setTitle("SNAKE - Classica " + nomeVelocita + " - In Gioco");
+     pausa = false;
+     settaTimer(); } } }); }
   
  class gioco extends TimerTask { // Al termine del timer, il serpente viene mosso
   public void run() {
@@ -88,8 +88,8 @@ public class SnakeFrame extends JFrame {
   for (int i = 0; i < 11; i++) {
    for (int j = 0; j < 21; j++) {
     griglia[i][j] = new JLabel("     "); // Le caselle sono costituite da delle JLabel vuote colorate di bianco
-	griglia[i][j].setBackground(Color.WHITE);
-	griglia[i][j].setOpaque(true);
+    griglia[i][j].setBackground(Color.WHITE);
+    griglia[i][j].setOpaque(true);
     p.add(griglia[i][j]); } }
   for (int j = 0; j < 7; j++) {
    griglia[10][j].setBackground(Color.BLUE); } } // Le caselle iniziale occupate dal serpente sono invece blu
@@ -138,25 +138,25 @@ public class SnakeFrame extends JFrame {
    Coordinate correnti = (Coordinate) it.next();
    if (testa == true) { // Stiamo muovendo l'elemento di testa
     ultimoX = correnti.getX(); // Salva le coordinate attuali della testa
-	ultimoY = correnti.getY();
-	if (posizioneCorretta(ultimoX + aggiungiX, ultimoY + aggiungiY) == false) { // Se il serpente si scontra contro qualcosa il gioco finisce
-	 return false; } 
+    ultimoY = correnti.getY();
+    if (posizioneCorretta(ultimoX + aggiungiX, ultimoY + aggiungiY) == false) { // Se il serpente si scontra contro qualcosa il gioco finisce
+     return false; } 
     correnti.setX(ultimoX+aggiungiX);  // La testa si sposta e assume nuove coordinate
     correnti.setY(ultimoY+aggiungiY);
-	if (griglia[correnti.getX()][correnti.getY()].getBackground() == Color.RED) { // Il serpente mangia, viene aggiornato il punteggio e un altro frutto viene aggiunto
-	 inserisciFrutto();
-	 aggiornaPunteggio();
+    if (griglia[correnti.getX()][correnti.getY()].getBackground() == Color.RED) { // Il serpente mangia, viene aggiornato il punteggio e un altro frutto viene aggiunto
+     inserisciFrutto();
+     aggiornaPunteggio();
      mangiato = true; }
     griglia[correnti.getX()][correnti.getY()].setBackground(Color.BLUE);
     testa = false; }
    else { // Stiamo muovendo un elemento interno al serpente, che imita il movimento di quello successivo
     swapX = correnti.getX();
-	swapY = correnti.getY();
-	correnti.setX(ultimoX);
-	correnti.setY(ultimoY);
-	griglia[ultimoX][ultimoY].setBackground(Color.BLUE);
-	ultimoX = swapX;
-	ultimoY = swapY; } }
+    swapY = correnti.getY();
+    correnti.setX(ultimoX);
+    correnti.setY(ultimoY);
+    griglia[ultimoX][ultimoY].setBackground(Color.BLUE);
+    ultimoX = swapX;
+    ultimoY = swapY; } }
 	
   if ( mangiato == true) { // Se il serpente ha mangiato, viene aggiunto un nuovo elemento in coda
    snake.getElementi().add(new Coordinate(swapX, swapY));
