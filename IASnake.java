@@ -484,54 +484,54 @@ public class IASnake extends JFrame {
        if (griglia[i][posizioneTestaY].getBackground() == Color.WHITE) { // Viene incontrato uno spazio bianco
         spaziBianchi = spaziBianchi + 1; }
        else { // Viene incontrato un frutto: vengono aggiunti punti bonus alla conta!
-	spaziBianchi = spaziBianchi + puntiFrutto; } }
+        spaziBianchi = spaziBianchi + puntiFrutto; } }
 	   
       else if (griglia[i][posizioneTestaY].getBackground() != Color.BLUE && i == 0) { // Controlla se e' arrivato alla fine della griglia, dopodiche' comincia a sondare le zone adiacenti
        flag = false;
        if (griglia[i][posizioneTestaY].getBackground() == Color.WHITE) {
-	spaziBianchi = spaziBianchi + 1; }
+        spaziBianchi = spaziBianchi + 1; }
        else {
-	spaziBianchi = spaziBianchi + puntiFrutto; }
-	for (int j = posizioneTestaY-1; j >= 0; j--) { // Sonda la zona a sinistra
-	 if (flag2 == true) {
-          if (griglia[i][j].getBackground() != Color.BLUE) { 
-           if (griglia[i][j].getBackground() == Color.WHITE) {
-	    spaziBianchi = spaziBianchi + 1; }
-	   else {
-	    spaziBianchi = spaziBianchi + puntiFrutto; } }
-	  else { 
-	   flag2 = false; } } }
-	for (int j = posizioneTestaY+1; j < 21; j++) { // Controlla la zona a destra
-	 if (flag3 == true) {
-	  if (griglia[i][j].getBackground() != Color.BLUE) {
-	   if (griglia[i][j].getBackground() == Color.WHITE) {
-	    spaziBianchi = spaziBianchi + 1; }
-	   else {
-	    spaziBianchi = spaziBianchi + puntiFrutto; } }
-	  else {
-	   flag3 = false; } } } }
+        spaziBianchi = spaziBianchi + puntiFrutto; }
+       for (int j = posizioneTestaY-1; j >= 0; j--) { // Sonda la zona a sinistra
+        if (flag2 == true) {
+         if (griglia[i][j].getBackground() != Color.BLUE) { 
+          if (griglia[i][j].getBackground() == Color.WHITE) {
+           spaziBianchi = spaziBianchi + 1; }
+          else {
+           spaziBianchi = spaziBianchi + puntiFrutto; } }
+         else { 
+          flag2 = false; } } }
+       for (int j = posizioneTestaY+1; j < 21; j++) { // Controlla la zona a destra
+        if (flag3 == true) {
+         if (griglia[i][j].getBackground() != Color.BLUE) {
+          if (griglia[i][j].getBackground() == Color.WHITE) {
+           spaziBianchi = spaziBianchi + 1; }
+          else {
+           spaziBianchi = spaziBianchi + puntiFrutto; } }
+         else {
+          flag3 = false; } } } }
 	   
       else if (griglia[i][posizioneTestaY].getBackground() == Color.BLUE) { // Se trova un blocco blu si ferma per controllare le zone adiacenti
        flag = false;
        if (spaziBianchi != 0) {
-	for (int j = posizioneTestaY-1; j >= 0; j--) {
-	 if (flag2 == true) {
-	  if (griglia[i+1][j].getBackground() != Color.BLUE) { 
+        for (int j = posizioneTestaY-1; j >= 0; j--) {
+         if (flag2 == true) {
+          if (griglia[i+1][j].getBackground() != Color.BLUE) { 
            if (griglia[i+1][j].getBackground() == Color.WHITE) {
-	    spaziBianchi = spaziBianchi + 1; }
-	   else {
-	    spaziBianchi = spaziBianchi + puntiFrutto; } }
-	  else {
-	   flag2 = false; } } }
-	for (int j = posizioneTestaY+1; j < 21; j++) {
-	 if (flag3 == true) {
-	  if (griglia[i+1][j].getBackground() != Color.BLUE) {
-	   if (griglia[i+1][j].getBackground() == Color.WHITE) {
-	    spaziBianchi = spaziBianchi + 1; }
-	   else {
-	    spaziBianchi = spaziBianchi + puntiFrutto; } }
-	  else {
-	   flag3 = false; } } } } } } } }
+            spaziBianchi = spaziBianchi + 1; }
+           else {
+            spaziBianchi = spaziBianchi + puntiFrutto; } }
+          else {
+           flag2 = false; } } }
+        for (int j = posizioneTestaY+1; j < 21; j++) {
+         if (flag3 == true) {
+          if (griglia[i+1][j].getBackground() != Color.BLUE) {
+           if (griglia[i+1][j].getBackground() == Color.WHITE) {
+            spaziBianchi = spaziBianchi + 1; }
+           else {
+            spaziBianchi = spaziBianchi + puntiFrutto; } }
+          else {
+           flag3 = false; } } } } } } } }
 
    //////	
    else if (c == 's') {
@@ -541,54 +541,54 @@ public class IASnake extends JFrame {
        if (griglia[i][posizioneTestaY].getBackground() == Color.WHITE) {
         spaziBianchi = spaziBianchi + 1; }
        else {
-	spaziBianchi = spaziBianchi + puntiFrutto; } }
+        spaziBianchi = spaziBianchi + puntiFrutto; } }
 	   
       else if (griglia[i][posizioneTestaY].getBackground() != Color.BLUE && i == 10) { 
        flag = false;
        if (griglia[i][posizioneTestaY].getBackground() == Color.WHITE) {
-	spaziBianchi = spaziBianchi + 1; }
+        spaziBianchi = spaziBianchi + 1; }
        else {
-	spaziBianchi = spaziBianchi + puntiFrutto; }
+        spaziBianchi = spaziBianchi + puntiFrutto; }
        for (int j = posizioneTestaY-1; j >= 0; j--) { 
-	if (flag2 == true) {
+        if (flag2 == true) {
          if (griglia[i][j].getBackground() != Color.BLUE) { 
-	  if (griglia[i][j].getBackground() == Color.WHITE) {
-	   spaziBianchi = spaziBianchi + 1; }
+          if (griglia[i][j].getBackground() == Color.WHITE) {
+           spaziBianchi = spaziBianchi + 1; }
           else {
-	   spaziBianchi = spaziBianchi + puntiFrutto; } }
-	 else { 
+           spaziBianchi = spaziBianchi + puntiFrutto; } }
+         else { 
           flag2 = false; } } }
        for (int j = posizioneTestaY+1; j < 21; j++) { 
-	if (flag3 == true) {
-	 if (griglia[i][j].getBackground() != Color.BLUE) {
-	  if (griglia[i][j].getBackground() == Color.WHITE) {
-	   spaziBianchi = spaziBianchi + 1; }
-	  else {
-	   spaziBianchi = spaziBianchi + puntiFrutto; } }
-	 else {
-	  flag3 = false; } } } }
+        if (flag3 == true) {
+         if (griglia[i][j].getBackground() != Color.BLUE) {
+          if (griglia[i][j].getBackground() == Color.WHITE) {
+           spaziBianchi = spaziBianchi + 1; }
+          else {
+           spaziBianchi = spaziBianchi + puntiFrutto; } }
+         else {
+          flag3 = false; } } } }
 	   
       else if (griglia[i][posizioneTestaY].getBackground() == Color.BLUE) { 
        flag = false;
        if (spaziBianchi != 0) {
-	for (int j = posizioneTestaY-1; j >= 0; j--) {
-	 if (flag2 == true) {
+        for (int j = posizioneTestaY-1; j >= 0; j--) {
+         if (flag2 == true) {
           if (griglia[i-1][j].getBackground() != Color.BLUE) { 
            if (griglia[i-1][j].getBackground() == Color.WHITE) {
-	    spaziBianchi = spaziBianchi + 1; }
-	   else {
-	    spaziBianchi = spaziBianchi + puntiFrutto; } }
-	  else {
-	   flag2 = false; } } }
-	for (int j = posizioneTestaY+1; j < 21; j++) {
-	 if (flag3 == true) {
+            spaziBianchi = spaziBianchi + 1; }
+           else {
+            spaziBianchi = spaziBianchi + puntiFrutto; } }
+          else {
+           flag2 = false; } } }
+        for (int j = posizioneTestaY+1; j < 21; j++) {
+         if (flag3 == true) {
           if (griglia[i-1][j].getBackground() != Color.BLUE) {
            if (griglia[i-1][j].getBackground() == Color.WHITE) {
-	    spaziBianchi = spaziBianchi + 1; }
-	   else {
-	    spaziBianchi = spaziBianchi + puntiFrutto; } }
-	  else {
-	   flag3 = false; } } } } } } } }
+            spaziBianchi = spaziBianchi + 1; }
+           else {
+            spaziBianchi = spaziBianchi + puntiFrutto; } }
+          else {
+           flag3 = false; } } } } } } } }
    
    //////   
    else if (c == 'a') {
