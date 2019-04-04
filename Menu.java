@@ -58,59 +58,59 @@ public class Menu extends JFrame {
   classica.addActionListener(new ActionListener() { // Permette al pulsante "Classica" di iniziare una nuova partita
    public void actionPerformed(ActionEvent e) {
     String[] opzioni = {"Lento", "Normale", "Veloce"}; // Sceglie la velocita' del serpente
-	int scelta = JOptionPane.showOptionDialog(null, new JLabel("Scegli la velocita' del serpente!", JLabel.CENTER), "SNAKE - Classica", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, opzioni, opzioni[1]);
-	if (scelta == JOptionPane.CLOSED_OPTION) {} // Il giocatore preme 'x' e ritorna al menu
-	else {
-	SnakeFrame nuovaPartita = new SnakeFrame(punteggioRecord, punteggioRecordIA, scelta+1); // Il giocatore sceglie correttamente una velocita'
-	nuovaPartita.setSize(435, 296);
-	nuovaPartita.setResizable(false);
-	nuovaPartita.setVisible(true);
-	nuovaPartita.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setVisible(false);
-	timer.cancel();
-	timer2.cancel();
-    dispose(); } } });
+    int scelta = JOptionPane.showOptionDialog(null, new JLabel("Scegli la velocita' del serpente!", JLabel.CENTER), "SNAKE - Classica", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, opzioni, opzioni[1]);
+    if (scelta == JOptionPane.CLOSED_OPTION) {} // Il giocatore preme 'x' e ritorna al menu
+    else {
+     SnakeFrame nuovaPartita = new SnakeFrame(punteggioRecord, punteggioRecordIA, scelta+1); // Il giocatore sceglie correttamente una velocita'
+     nuovaPartita.setSize(435, 296);
+     nuovaPartita.setResizable(false);
+     nuovaPartita.setVisible(true);
+     nuovaPartita.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     setVisible(false);
+     timer.cancel();
+     timer2.cancel();
+     dispose(); } } });
 
   testIA.addActionListener(new ActionListener() { // Permette al pulsante "Test IA" di testare l'IA in una nuova partita
    public void actionPerformed(ActionEvent e) {
-	String[] opzioni = {"Normale", "Benchmark"}; // Sceglie il tipo di test
-	IASnake nuovaPartita;
-	int scelta = JOptionPane.showOptionDialog(null, new JLabel("Scegli la modalita'!", JLabel.CENTER), "SNAKE - Test IA", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, opzioni, opzioni[0]);
-	if (scelta == JOptionPane.CLOSED_OPTION) {}
-	else {
-	 if (scelta == 0) {
-	  nuovaPartita = new IASnake(punteggioRecordIA, punteggioRecord, 0, 0, false); }
-	 else {
-	  JOptionPane.showMessageDialog(null, new JLabel("Premi 'e' per interrompere il benchmark!", JLabel.CENTER), "SNAKE - Test IA Benchmark", JOptionPane.PLAIN_MESSAGE);
-	  nuovaPartita = new IASnake(punteggioRecordIA, punteggioRecord, 1, 0, true); }
-	 nuovaPartita.setSize(435, 296);
-	 nuovaPartita.setResizable(false);
-	 nuovaPartita.setVisible(true);
-	 nuovaPartita.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    String[] opzioni = {"Normale", "Benchmark"}; // Sceglie il tipo di test
+    IASnake nuovaPartita;
+    int scelta = JOptionPane.showOptionDialog(null, new JLabel("Scegli la modalita'!", JLabel.CENTER), "SNAKE - Test IA", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, opzioni, opzioni[0]);
+    if (scelta == JOptionPane.CLOSED_OPTION) {}
+    else {
+     if (scelta == 0) {
+      nuovaPartita = new IASnake(punteggioRecordIA, punteggioRecord, 0, 0, false); }
+     else {
+      JOptionPane.showMessageDialog(null, new JLabel("Premi 'e' per interrompere il benchmark!", JLabel.CENTER), "SNAKE - Test IA Benchmark", JOptionPane.PLAIN_MESSAGE);
+      nuovaPartita = new IASnake(punteggioRecordIA, punteggioRecord, 1, 0, true); }
+     nuovaPartita.setSize(435, 296);
+     nuovaPartita.setResizable(false);
+     nuovaPartita.setVisible(true);
+     nuovaPartita.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
      setVisible(false);
-	 timer.cancel();
+     timer.cancel();
      timer2.cancel();
      dispose();  } } });
   
   vs.addActionListener(new ActionListener() { // Permette al pulsante "VS" di iniziare una partita per due giocatori
    public void actionPerformed(ActionEvent e) {
     String[] opzioni = {"Giocatore 2", "Computer"}; // Sceglie se sfidare un altra persona o la CPU
-	Vs nuovaPartita;
-	int scelta = JOptionPane.showOptionDialog(null, new JLabel("Scegli contro chi giocare!", JLabel.CENTER), "SNAKE - VS", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, opzioni, opzioni[0]);
+    Vs nuovaPartita;
+    int scelta = JOptionPane.showOptionDialog(null, new JLabel("Scegli contro chi giocare!", JLabel.CENTER), "SNAKE - VS", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, opzioni, opzioni[0]);
     if (scelta == JOptionPane.CLOSED_OPTION) {}
-	else {
-	 if (scelta == 0) {
-	  nuovaPartita = new Vs(punteggioRecord, punteggioRecordIA, true); }
-	 else {
-	  nuovaPartita = new Vs(punteggioRecord, punteggioRecordIA, false); }
-    nuovaPartita.setSize(435, 535);
-    nuovaPartita.setResizable(false);
-    nuovaPartita.setVisible(true);
-    nuovaPartita.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setVisible(false);
-	timer.cancel();
-	timer2.cancel();
-    dispose(); } } });
+    else {
+     if (scelta == 0) {
+      nuovaPartita = new Vs(punteggioRecord, punteggioRecordIA, true); }
+     else {
+      nuovaPartita = new Vs(punteggioRecord, punteggioRecordIA, false); }
+     nuovaPartita.setSize(435, 535);
+     nuovaPartita.setResizable(false);
+     nuovaPartita.setVisible(true);
+     nuovaPartita.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     setVisible(false);
+     timer.cancel();
+     timer2.cancel();
+     dispose(); } } });
 
   about.addActionListener(new ActionListener() { // Permette al pulsante "About" di mostrare la spiegazione
    public void actionPerformed(ActionEvent e) {
@@ -119,9 +119,9 @@ public class Menu extends JFrame {
   esci.addActionListener(new ActionListener() { // Permette al pulsante "Esci" di uscire
    public void actionPerformed(ActionEvent e) {
     timer.cancel();
-	timer2.cancel();
-	setVisible(false);
-	dispose(); } });
+    timer2.cancel();
+    setVisible(false);
+    dispose(); } });
    
   snake1 = new Snake(0); // Inizializza i serpenti e timers per l'animazione del logo
   snake2 = new Snake(1);
@@ -135,8 +135,8 @@ public class Menu extends JFrame {
   for (int i = 0; i < 11; i++) {
    for (int j = 0; j < 25; j++) {
     griglia[i][j] = new JLabel("     "); // Le caselle sono costituite da delle JLabel vuote colorate di bianco
-	griglia[i][j].setBackground(Color.WHITE);
-	griglia[i][j].setOpaque(true);
+    griglia[i][j].setBackground(Color.WHITE);
+    griglia[i][j].setOpaque(true);
     logo.add(griglia[i][j]); } }
 	
   // Prepara la lettera "s"
@@ -254,38 +254,39 @@ public class Menu extends JFrame {
    Coordinate correnti = (Coordinate) it.next();
    if (testa == true) { // Stiamo muovendo l'elemento di testa
     ultimoX = correnti.getX(); // Salva le coordinate attuali della testa
-	ultimoY = correnti.getY(); 
+    ultimoY = correnti.getY(); 
     correnti.setX(ultimoX+aggiungiX); // La testa si sposta e assume nuove coordinate
     correnti.setY(ultimoY+aggiungiY);
     griglia[correnti.getX()][correnti.getY()].setBackground(Color.BLUE);
-	if (correnti.getX() == 9 && correnti.getY() == 1) { // Aggiorna l'input, e quindi la direzione, in base alla posizione del serpente
-	 if (i == 1) {
-	  input1 = 'w'; }
-	 else {
-	  input2 = 'w'; } }
-	if (correnti.getX() == 1 && correnti.getY() == 1) {
-	 if (i == 1) {
-	  input1 = 'd'; }
-	 else {
-	  input2 = 'd'; } }
-	if (correnti.getX() == 1 && correnti.getY() == 23) {
-	 if (i == 1) {
-	  input1 = 's'; }
-	 else {
-	  input2 = 's'; } }
-	if (correnti.getX() == 9 && correnti.getY() == 23) {
-	 if (i == 1) {
-	  input1 = 'a'; }
-	 else {
-	  input2 = 'a'; } }
+    if (correnti.getX() == 9 && correnti.getY() == 1) { // Aggiorna l'input, e quindi la direzione, in base alla posizione del serpente
+     if (i == 1) {
+      input1 = 'w'; }
+     else {
+      input2 = 'w'; } }
+    if (correnti.getX() == 1 && correnti.getY() == 1) {
+     if (i == 1) {
+      input1 = 'd'; }
+     else {
+      input2 = 'd'; } }
+    if (correnti.getX() == 1 && correnti.getY() == 23) {
+     if (i == 1) {
+      input1 = 's'; }
+     else {
+      input2 = 's'; } }
+    if (correnti.getX() == 9 && correnti.getY() == 23) {
+     if (i == 1) {
+      input1 = 'a'; }
+     else {
+      input2 = 'a'; } }
     testa = false;	}
    else { // Stiamo muovendo un elemento interno al serpente, che imita il movimento di quello successivo
     swapX = correnti.getX();
-	swapY = correnti.getY();
-	correnti.setX(ultimoX);
-	correnti.setY(ultimoY);
-	griglia[ultimoX][ultimoY].setBackground(Color.BLUE);
-	ultimoX = swapX;
-	ultimoY = swapY; } }
+    swapY = correnti.getY();
+    correnti.setX(ultimoX);
+    correnti.setY(ultimoY);
+    griglia[ultimoX][ultimoY].setBackground(Color.BLUE);
+    ultimoX = swapX;
+    ultimoY = swapY; } }
+	 
   griglia[ultimoX][ultimoY].setBackground(Color.WHITE);	} }
   
