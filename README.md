@@ -23,4 +23,5 @@ IASnake.java
 Vs.java
 
 INSTALL INSTRUCTIONS:
-Compile "Main.java" and then execute it.
+Compile Main.java with "javac Main.java" and then execute it with "JAVA Main" on your command prompt. 
+The program is compatible with Windows systems only.
