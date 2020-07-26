@@ -18,4 +18,4 @@ The code is commented in Italian whenever possible.
 
 <b>Install Instructions:</b><br/>
 Compile Main.java with "javac Main.java" and then execute it with "JAVA Main" on your command prompt.<br/>
-I've tested this program on Windows systems only.
+I've tested this program on Windows systems only: however it should work correctly on other systems if the setSize function of the view windows work exactly as they do on Windows.
